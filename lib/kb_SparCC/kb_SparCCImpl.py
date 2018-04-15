@@ -35,7 +35,7 @@ FastSpar: https://github.com/scwatts/fastspar
     # the latter method is running.
     ######################################### noqa
     VERSION = "0.0.1"
-    GIT_URL = "https://github.com/dcchivian/kb_SparCC"
+    GIT_URL = "https://github.com/kbaseapps/kb_SparCC"
     GIT_COMMIT_HASH = "4a01c7c1c20031fe292c7d731d2f698879b27946"
 
     #BEGIN_CLASS_HEADER

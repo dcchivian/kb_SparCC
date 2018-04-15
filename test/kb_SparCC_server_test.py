@@ -123,7 +123,7 @@ class kb_SparCCTest(unittest.TestCase):
             'single_avg_abund_viz_flag': 0,
             'correlation_viz_threshold': 0.25
         }
-        result = self.getImpl().run_sparcc(self.getContext(), params)[0]
+        result = self.getImpl().run_SparCC(self.getContext(), params)[0]
 
         pprint('End to end test result:')
         pprint(result)

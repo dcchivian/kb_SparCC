@@ -7,8 +7,8 @@ import sys
 
 from KBaseReport.KBaseReportClient import KBaseReport
 
-from kb_kaiju.Utils.DataStagingUtils import DataStagingUtils
-from kb_kaiju.Utils.OutputBuilder import OutputBuilder
+from kb_SparCC.Utils.DataStagingUtils import DataStagingUtils
+from kb_SparCC.Utils.OutputBuilder import OutputBuilder
 
 
 def log(message, prefix_newline=False):
@@ -17,7 +17,7 @@ def log(message, prefix_newline=False):
     sys.stdout.flush()
 
 
-class KaijuUtil:
+class SparCCUtil:
 
     def __init__(self, config, ctx):
         self.config = config
@@ -27,21 +27,19 @@ class KaijuUtil:
         self.scratch = config['scratch']
         self.threads = config['threads']
         self.suffix = str(int(time.time() * 1000))
-        self.SE_flag = 'SE'
-        self.PE_flag = 'PE'
         self.dsu_client = DataStagingUtils(self.config, self.ctx)
 
         if not os.path.exists(self.scratch):
             os.makedirs(self.scratch)
         
 
-    def run_kaiju_with_krona(self, params):
+    def run_SparCC_with_Pvalue(self, params):
         '''
-        Main entry point for running kaiju + krona as a KBase App
+        Main entry point for running SparCC + P-value calculation as a KBase App
         '''
 
         # 0) validate basic parameters and set defaults
-        params = self.validate_run_kaiju_with_krona_params(params)
+        params = self.validate_run_sparcc_params(params)
 
         # 1) expand input members that are sets
         expanded_input = self.dsu_client.expand_input(params['input_refs'])
@@ -261,8 +259,10 @@ class KaijuUtil:
         return exitCode
             
 
-    def validate_run_kaiju_with_krona_params(self, params):
-        method = 'run_kaiju_with_krona'
+    def validate_run_sparcc_params(self, params):
+        method = 'run_sparcc_with_pvalue'
+
+        # HERE
 
         # base required params
         required_params = ['workspace_name',
