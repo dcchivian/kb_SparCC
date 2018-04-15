@@ -24,6 +24,19 @@
 			}
 		},
 		{
+			"id": "abundance_thresh",
+			"optional": false,
+			"advanced": false,
+			"allow_multiple": false,
+			"default_values": [ "1.0" ],
+			"field_type": "text",
+			"text_options": {
+				"validate_as": "float",
+			        "min_int": 0,
+			        "max_int": 100
+			}
+		},
+		{
 			"id": "correlation_type",
 			"optional": false,
 			"advanced": false,
@@ -136,8 +149,8 @@
 			"field_type": "text",
 			"text_options": {
 				"validate_as": "float",
-			        "min_float": 0.0,
-			        "max_float": 1.0
+			        "min_int": 0,
+			        "max_int": 1
 			}
 		}
 	],

@@ -92,6 +92,7 @@ module kb_SparCC {
 	workspace_name workspace_name;
 	data_obj_ref   input_biom_ref;
 
+	float          abundance_thresh;
 	string         correlation_type;
 	int            iterations;
 	bool           p_vals_flag;

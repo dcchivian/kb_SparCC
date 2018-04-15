@@ -32,6 +32,11 @@ parameters :
             BIOM abundance <font color=red>*</font>
         short-hint : |
             The abundance matrix within which to calculate correlations
+    abundance_threshold :
+        ui-name : |
+            Abundance threshold
+        short-hint : |
+            Ignore members that are below threshold abundance in all samples (percentage per sample)
     correlation_type : 
         ui-name : |
             Correlation type
@@ -67,22 +72,16 @@ parameters :
 # Desc
 #
 description : |
-	<p>This is a Narrative Method for running <a href="http://kaiju.binf.ku.dk/">Kaiju: Fast and sensitive taxonomic classification for metagenomics.</a> 
-	Kaiju is written by Peter Menzel and Anders Krogh at the Bioinfomratics Centre, a part of the <a href="http://www1.bio.ku.dk/binf/" target="centre">Section for Computational and RNA Biology</a> at the <a href="http://www.ku.dk/english" target="ucop">University of Copenhagen</a>.
+	<p>This is a Narrative Method for running <a href="https://bitbucket.org/yonatanf/sparcc">SparCC</a> a python module for computing correlations in compositional data (16S, metagenomics, etc.).<br> 
+	SparCC is written by Jonathan Friedman at MIT.
 	 </p>
 	 <hr>
 	 <p>
 	 References:<br>
-	 Kaiju Homepage: http://kaiju.binf.ku.dk/<br>
-	 Krona Homepage: https://github.com/marbl/Krona/wiki<br>
-	 Kaiju DBs from: http://kaiju.binf.ku.dk/server<br>
-	 Github repo for Kaiju: https://github.com/bioinformatics-centre/kaiju<br>
-	 Github repo for Krona: https://github.com/marbl/Krona<br>
+	 SparCC repo: https://bitbucket.org/yonatanf/sparcc<br>
 	 </p>
 	 <hr>
-	 Kaiju paper: Menzel, P. et al. (2016) <a href="http://www.ncbi.nlm.nih.gov/pubmed/27071849">Fast and sensitive taxonomic classification for metagenomics with Kaiju.</a> Nat. Commun. 7:11257.
-	 <br>
-	 Krona paper: Ondov BD, Bergman NH, and Phillippy AM. <a href="http://www.ncbi.nlm.nih.gov/pubmed/21961884">Interactive metagenomic visualization in a Web browser.</a> BMC Bioinformatics. 2011 Sep 30; 12(1):385.
+	 SparCC paper: Friedman, J. and Alm, EJ. (2012) <a href="http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1002687">Inferring Correlation Networks from Genomic Survey Data.</a> PLoS Comput Biol. 2012;8(9):e1002687.  DOI: 10.1371/journal.pcbi.1002687  PMID: 23028285
 	 </p>
 	 <hr>
 	 <p>
@@ -90,32 +89,13 @@ description : |
 	 </p>
 	 <hr>
 	 <h3>Description</h3>
-	 Kaiju offers four reference databases for classification, which are downloaded from the <a href="http://kaiju.binf.ku.dk/server">Kaiju webserver page</a> (last updated 2017-05-16).  The databases are<p>
-	 <ul>
-	 <li> <b>RefSeq Complete Genomes</b>: 25M protein sequences from 7065 complete bacterial and archaeal genomes and 9334 viral genomes from NCBI RefSeq. 
-	 <li> <b>proGenomes</b>: 20M protein sequences from bacterial and archaeal genomes and 9334 viral genomes from NCBI RefSeq.
-	 <li> <b>NCBI BLAST nr</b>: 94M protein sequences from nr: Bacteria, Archaea, and Viruses.
-	 <li> <b>NCBI BLAST nr+euk</b>: 103M protein sequences from nr: Bacteria, Archaea, Viruses, Fungi and microbial eukaryotes.
-	 </ul>
+	 Genomic survey data, such as those obtained from 16S rRNA gene sequencing, are subject to underappreciated mathematical difficulties that can undermine standard data analysis techniques. These effects can lead to erroneous correlations among taxa within microbiomes despite the statistical significance of the associations. To overcome these difficulties, we developed SparCC; a novel procedure, tailored to the properties of genomic survey data, that allow inference of correlations between genes or species.
 
 publications :
     -
-        pmid: 27071849
+        pmid: 23028285
         display-text : |
-            'Menzel P, Ng KL, Krogh A. (2016) Fast and sensitive taxonomic classification for metagenomics with Kaiju. Nat Commun. 2016 Apr 13;7:11257. doi: 10.1038/ncomms11257'
-        link: http://www.ncbi.nlm.nih.gov/pubmed/27071849
+            'Friedman, J. and Alm, EJ. (2012) Inferring Correlation Networks from Genomic Survey Data. PLoS Comput Biol. 2012;8(9):e1002687. doi: 10.1371/journal.pcbi.1002687'
+        link: http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1002687
     -
-        pmid: 21961884
-        display-text : |
-            'Ondov BD, Bergman NH, and Phillippy AM. (2011) Interactive metagenomic visualization in a Web browser. BMC Bioinformatics. 2011 Sep 30; 12(1):385. doi: 10.1186/1471-2105-12-385'
-        link: http://www.ncbi.nlm.nih.gov/pubmed/21961884
-    -
-    	link: http://kaiju.binf.ku.dk/
-    -
-    	link: http://kaiju.binf.ku.dk/server
-    -
-    	link: https://github.com/bioinformatics-centre/kaiju
-    -
-    	link: https://github.com/marbl/Krona/wiki
-    -
-    	link: https://github.com/marbl/Krona
+    	link: https://bitbucket.org/yonatanf/sparcc
