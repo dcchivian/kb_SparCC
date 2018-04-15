@@ -23,6 +23,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
     "workspace_name",
     "input_biom_ref",
+    "abundance_thresh",
     "correlation_type",
     "iterations",
     "p_vals_flag",
@@ -36,6 +37,8 @@ public class SparCCInputParams {
     private String workspaceName;
     @JsonProperty("input_biom_ref")
     private String inputBiomRef;
+    @JsonProperty("abundance_thresh")
+    private Double abundanceThresh;
     @JsonProperty("correlation_type")
     private String correlationType;
     @JsonProperty("iterations")
@@ -77,6 +80,21 @@ public class SparCCInputParams {
 
     public SparCCInputParams withInputBiomRef(String inputBiomRef) {
         this.inputBiomRef = inputBiomRef;
+        return this;
+    }
+
+    @JsonProperty("abundance_thresh")
+    public Double getAbundanceThresh() {
+        return abundanceThresh;
+    }
+
+    @JsonProperty("abundance_thresh")
+    public void setAbundanceThresh(Double abundanceThresh) {
+        this.abundanceThresh = abundanceThresh;
+    }
+
+    public SparCCInputParams withAbundanceThresh(Double abundanceThresh) {
+        this.abundanceThresh = abundanceThresh;
         return this;
     }
 
@@ -182,7 +200,7 @@ public class SparCCInputParams {
 
     @Override
     public String toString() {
-        return ((((((((((((((((((("SparCCInputParams"+" [workspaceName=")+ workspaceName)+", inputBiomRef=")+ inputBiomRef)+", correlationType=")+ correlationType)+", iterations=")+ iterations)+", pValsFlag=")+ pValsFlag)+", bootstraps=")+ bootstraps)+", singleAvgAbundVizFlag=")+ singleAvgAbundVizFlag)+", correlationVizThresh=")+ correlationVizThresh)+", additionalProperties=")+ additionalProperties)+"]");
+        return ((((((((((((((((((((("SparCCInputParams"+" [workspaceName=")+ workspaceName)+", inputBiomRef=")+ inputBiomRef)+", abundanceThresh=")+ abundanceThresh)+", correlationType=")+ correlationType)+", iterations=")+ iterations)+", pValsFlag=")+ pValsFlag)+", bootstraps=")+ bootstraps)+", singleAvgAbundVizFlag=")+ singleAvgAbundVizFlag)+", correlationVizThresh=")+ correlationVizThresh)+", additionalProperties=")+ additionalProperties)+"]");
     }
 
 }

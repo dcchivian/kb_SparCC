@@ -136,6 +136,7 @@ $return is a kb_SparCC.SparCCOutput
 SparCCInputParams is a reference to a hash where the following keys are defined:
 	workspace_name has a value which is a kb_SparCC.workspace_name
 	input_biom_ref has a value which is a kb_SparCC.data_obj_ref
+	abundance_thresh has a value which is a float
 	correlation_type has a value which is a string
 	iterations has a value which is an int
 	p_vals_flag has a value which is a kb_SparCC.bool
@@ -161,6 +162,7 @@ $return is a kb_SparCC.SparCCOutput
 SparCCInputParams is a reference to a hash where the following keys are defined:
 	workspace_name has a value which is a kb_SparCC.workspace_name
 	input_biom_ref has a value which is a kb_SparCC.data_obj_ref
+	abundance_thresh has a value which is a float
 	correlation_type has a value which is a string
 	iterations has a value which is an int
 	p_vals_flag has a value which is a kb_SparCC.bool
@@ -461,6 +463,7 @@ SparCC App Input Params
 a reference to a hash where the following keys are defined:
 workspace_name has a value which is a kb_SparCC.workspace_name
 input_biom_ref has a value which is a kb_SparCC.data_obj_ref
+abundance_thresh has a value which is a float
 correlation_type has a value which is a string
 iterations has a value which is an int
 p_vals_flag has a value which is a kb_SparCC.bool
@@ -477,6 +480,7 @@ correlation_viz_thresh has a value which is a float
 a reference to a hash where the following keys are defined:
 workspace_name has a value which is a kb_SparCC.workspace_name
 input_biom_ref has a value which is a kb_SparCC.data_obj_ref
+abundance_thresh has a value which is a float
 correlation_type has a value which is a string
 iterations has a value which is an int
 p_vals_flag has a value which is a kb_SparCC.bool

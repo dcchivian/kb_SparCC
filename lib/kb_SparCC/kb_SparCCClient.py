@@ -46,11 +46,12 @@ class kb_SparCC(object):
            should just be used for workspace ** "name" is a string identifier
            of a workspace or object.  This is received from Narrative.),
            parameter "input_biom_ref" of type "data_obj_ref", parameter
-           "correlation_type" of String, parameter "iterations" of Long,
-           parameter "p_vals_flag" of type "bool" (A boolean - 0 for false, 1
-           for true. @range (0, 1)), parameter "bootstraps" of Long,
-           parameter "single_avg_abund_viz_flag" of type "bool" (A boolean -
-           0 for false, 1 for true. @range (0, 1)), parameter
+           "abundance_thresh" of Double, parameter "correlation_type" of
+           String, parameter "iterations" of Long, parameter "p_vals_flag" of
+           type "bool" (A boolean - 0 for false, 1 for true. @range (0, 1)),
+           parameter "bootstraps" of Long, parameter
+           "single_avg_abund_viz_flag" of type "bool" (A boolean - 0 for
+           false, 1 for true. @range (0, 1)), parameter
            "correlation_viz_thresh" of Double
         :returns: instance of type "SparCCOutput" (SparCC App Output) ->
            structure: parameter "report_name" of type "data_obj_name",

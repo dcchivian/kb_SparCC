@@ -75,15 +75,66 @@ class kb_SparCCTest(unittest.TestCase):
     def getContext(self):
         return self.__class__.ctx
 
-    # NOTE: According to Python unittest naming rules test method names should start from 'test'. # noqa
-    def test_your_method(self):
-        # Prepare test objects in workspace if needed using
-        # self.getWsClient().save_objects({'workspace': self.getWsName(),
-        #                                  'objects': []})
-        #
-        # Run your method by
-        # ret = self.getImpl().your_method(self.getContext(), parameters...)
-        #
-        # Check returned data with
-        # self.assertEqual(ret[...], ...) or other unittest methods
+
+    ##############
+    # UNIT TESTS #
+    ##############
+
+    ### Test 01: simple sparcc run
+    #
+    # Uncomment to skip this test
+    # HIDE @unittest.skip("skipped test_01_sparcc_base")
+    def test_01_sparcc_base(self):
+        method_name = 'test_01_sparcc_base'
+        print ("\n"+('='*(10+len(method_name))))
+        print ("RUNNING "+method_name+"()")
+        print (('='*(10+len(method_name)))+"\n")
+
+        # upload biom
+        BIOM_json_file = os.path.join('data', 'biom', '37A_37B_KAIJU_species.BIOM.json')
+        with open (BIOM_json_file, 'r', 0) as BIOM_json_fh:
+            BIOM_obj = json.load(BIOM_json_fh)
+        provenance = [{}]
+        BIOM_info_list = self.getWsClient().save_objects({
+            'workspace': self.getWsName(), 
+            'objects': [
+                {
+                    'type': 'Communities.Biom',
+                    'data': BIOM_obj,
+                    'name': 'test_BIOM_1',
+                    'meta': {},
+                    'provenance': provenance
+                }
+            ]})
+        [OBJID_I, NAME_I, TYPE_I, SAVE_DATE_I, VERSION_I, SAVED_BY_I, WSID_I, WORKSPACE_I, CHSUM_I, SIZE_I, META_I] = range(11)  # object_info tuple
+        BIOM_ref = str(BIOM_info_list[0][WSID_I])+'/'+str(BIOM_info_list[0][OBJID_I])+'/'+str(BIOM_info_list[0][VERSION_I])
+
+
+        # run sparcc
+        params = {
+            'workspace_name':            self.ws_info[1],
+            'input_biom_ref':            BIOM_ref,
+            'abundance_thresh':          1.0,
+            'correlation_type':          'sparcc',
+            'iterations':                5,
+            #'p_vals_flag':               1,
+            'p_vals_flag':               0,
+            'bootstraps':                10,  # only used if calculate p_vals
+            'single_avg_abund_viz_flag': 0,
+            'correlation_viz_threshold': 0.25
+        }
+        result = self.getImpl().run_sparcc(self.getContext(), params)[0]
+
+        pprint('End to end test result:')
+        pprint(result)
+
+        self.assertIn('report_name', result)
+        self.assertIn('report_ref', result)
+
+        # make sure the report was created and includes the HTML report and download links
+        #rep = self.getWsClient().get_objects2({'objects': [{'ref': result['report_ref']}]})['data'][0]['data']
+        #self.assertEquals(rep['direct_html_link_index'], 0)
+        #self.assertEquals(len(rep['file_links']), 2)
+        #self.assertEquals(len(rep['html_links']), 1)
+        #self.assertEquals(rep['html_links'][0]['name'], 'report.html')
         pass

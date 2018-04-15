@@ -172,6 +172,10 @@
 
 				},
 				{
+					"input_parameter": "abundance_thresh",
+					"target_property": "abundance_thresh"
+				},
+				{
 					"input_parameter": "correlation_type",
 					"target_property": "correlation_type"
 				},

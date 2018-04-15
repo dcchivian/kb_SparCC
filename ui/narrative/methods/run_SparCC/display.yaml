@@ -32,7 +32,7 @@ parameters :
             BIOM abundance <font color=red>*</font>
         short-hint : |
             The abundance matrix within which to calculate correlations
-    abundance_threshold :
+    abundance_thresh :
         ui-name : |
             Abundance threshold
         short-hint : |

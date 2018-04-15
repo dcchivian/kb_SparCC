@@ -35,8 +35,8 @@ FastSpar: https://github.com/scwatts/fastspar
     # the latter method is running.
     ######################################### noqa
     VERSION = "0.0.1"
-    GIT_URL = "https://github.com/kbaseapps/kb_SparCC"
-    GIT_COMMIT_HASH = "796f0cd685467d676e10bfca3ac4b99ccceaf96a"
+    GIT_URL = "https://github.com/dcchivian/kb_SparCC"
+    GIT_COMMIT_HASH = "4a01c7c1c20031fe292c7d731d2f698879b27946"
 
     #BEGIN_CLASS_HEADER
     #END_CLASS_HEADER
@@ -65,11 +65,12 @@ FastSpar: https://github.com/scwatts/fastspar
            should just be used for workspace ** "name" is a string identifier
            of a workspace or object.  This is received from Narrative.),
            parameter "input_biom_ref" of type "data_obj_ref", parameter
-           "correlation_type" of String, parameter "iterations" of Long,
-           parameter "p_vals_flag" of type "bool" (A boolean - 0 for false, 1
-           for true. @range (0, 1)), parameter "bootstraps" of Long,
-           parameter "single_avg_abund_viz_flag" of type "bool" (A boolean -
-           0 for false, 1 for true. @range (0, 1)), parameter
+           "abundance_thresh" of Double, parameter "correlation_type" of
+           String, parameter "iterations" of Long, parameter "p_vals_flag" of
+           type "bool" (A boolean - 0 for false, 1 for true. @range (0, 1)),
+           parameter "bootstraps" of Long, parameter
+           "single_avg_abund_viz_flag" of type "bool" (A boolean - 0 for
+           false, 1 for true. @range (0, 1)), parameter
            "correlation_viz_thresh" of Double
         :returns: instance of type "SparCCOutput" (SparCC App Output) ->
            structure: parameter "report_name" of type "data_obj_name",
